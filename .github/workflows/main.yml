@@ -1,0 +1,31 @@
+name: Build Admin
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install
+        run: |
+          cd webui
+          npm install
+
+      - name: Build
+        run: |
+          cd webui
+          npm run build
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: admin
+          path: static/admin
