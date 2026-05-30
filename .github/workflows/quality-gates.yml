@@ -131,7 +131,7 @@ jobs:
         env:
           CROSS_BUILD_JOBS: "3"
         run: ./tests/scripts/check-cross-build.sh
-        - name: Upload Admin UI
+      - name: Upload Admin UI
   uses: actions/upload-artifact@v4
   with:
     name: admin-ui
